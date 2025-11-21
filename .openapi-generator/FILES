@@ -6,6 +6,7 @@ README.md
 api/__init__.py
 api/api/__init__.py
 api/api/approval_groups_api.py
+api/api/approvals_api.py
 api/api/audits_api.py
 api/api/companies_api.py
 api/api/permission_groups_api.py
@@ -21,6 +22,7 @@ api/api_response.py
 api/configuration.py
 api/exceptions.py
 api/models/__init__.py
+api/models/approval.py
 api/models/audit.py
 api/models/auth_group.py
 api/models/auth_group_member.py
@@ -62,7 +64,9 @@ api/models/webhook_events.py
 api/models/webhook_input.py
 api/py.typed
 api/rest.py
+docs/Approval.md
 docs/ApprovalGroupsApi.md
+docs/ApprovalsApi.md
 docs/Audit.md
 docs/AuditsApi.md
 docs/AuthGroup.md
@@ -119,4 +123,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_approval.py
+test/test_approvals_api.py
 tox.ini

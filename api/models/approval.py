@@ -17,22 +17,40 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from uuid import UUID
+from api.models.transaction import Transaction
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AuthorizeRequest(BaseModel):
+class Approval(BaseModel):
     """
-    AuthorizeRequest
+    Approval
     """ # noqa: E501
-    message: Annotated[str, Field(min_length=1, strict=True, max_length=512)]
-    tag: Dict[str, StrictStr]
+    id: Optional[UUID] = Field(default=None, description="Approval ID")
+    state: Optional[StrictStr] = Field(default=None, description="Approval state")
+    completed_at: Optional[datetime] = Field(default=None, description="Approval completion timestamp", alias="completedAt")
+    requestor: Optional[StrictStr] = Field(default=None, description="Approval requestor")
+    context: Optional[StrictStr] = Field(default=None, description="Approval context")
+    created_at: Optional[datetime] = Field(default=None, description="Approval creation timestamp", alias="createdAt")
+    message: Optional[StrictStr] = Field(default=None, description="Approval message")
+    tags: Optional[Dict[str, StrictStr]] = None
     on_behalf_of: Optional[StrictStr] = Field(default=None, description="If requesting authorization on a user's behalf, provide the email to let the approvers know.", alias="onBehalfOf")
-    context: Optional[Annotated[str, Field(strict=True, max_length=512)]] = None
     payload: Optional[Dict[str, Any]] = Field(default=None, description="Arbitrary JSON data that gets passed to webhooks")
-    __properties: ClassVar[List[str]] = ["message", "tag", "onBehalfOf", "context", "payload"]
+    transactions: Optional[List[Transaction]] = None
+    __properties: ClassVar[List[str]] = ["id", "state", "completedAt", "requestor", "context", "createdAt", "message", "tags", "onBehalfOf", "payload", "transactions"]
+
+    @field_validator('state')
+    def state_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['pending', 'verified', 'denied', 'cancelled', 'expired']):
+            raise ValueError("must be one of enum values ('pending', 'verified', 'denied', 'cancelled', 'expired')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +70,7 @@ class AuthorizeRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AuthorizeRequest from a JSON string"""
+        """Create an instance of Approval from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,11 +91,18 @@ class AuthorizeRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in transactions (list)
+        _items = []
+        if self.transactions:
+            for _item_transactions in self.transactions:
+                if _item_transactions:
+                    _items.append(_item_transactions.to_dict())
+            _dict['transactions'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AuthorizeRequest from a dict"""
+        """Create an instance of Approval from a dict"""
         if obj is None:
             return None
 
@@ -87,14 +112,20 @@ class AuthorizeRequest(BaseModel):
         # raise errors for additional fields in the input
         for _key in obj.keys():
             if _key not in cls.__properties:
-                raise ValueError("Error due to additional fields (not defined in AuthorizeRequest) in the input: " + _key)
+                raise ValueError("Error due to additional fields (not defined in Approval) in the input: " + _key)
 
         _obj = cls.model_validate({
-            "message": obj.get("message"),
-            "tag": obj.get("tag"),
-            "onBehalfOf": obj.get("onBehalfOf"),
+            "id": obj.get("id"),
+            "state": obj.get("state"),
+            "completedAt": obj.get("completedAt"),
+            "requestor": obj.get("requestor"),
             "context": obj.get("context"),
-            "payload": obj.get("payload")
+            "createdAt": obj.get("createdAt"),
+            "message": obj.get("message"),
+            "tags": obj.get("tags"),
+            "onBehalfOf": obj.get("onBehalfOf"),
+            "payload": obj.get("payload"),
+            "transactions": [Transaction.from_dict(_item) for _item in obj["transactions"]] if obj.get("transactions") is not None else None
         })
         return _obj
 
