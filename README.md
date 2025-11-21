@@ -56,10 +56,10 @@ import api
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -91,7 +91,7 @@ with api.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.sendauth.com*
+All URIs are relative to *https://app.sendauth.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

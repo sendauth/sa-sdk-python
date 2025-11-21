@@ -1,6 +1,6 @@
 # api.SettingsApi
 
-All URIs are relative to *https://api.sendauth.com*
+All URIs are relative to *https://app.sendauth.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,10 +25,10 @@ from api.models.settings import Settings
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -100,10 +100,10 @@ from api.models.settings import Settings
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters

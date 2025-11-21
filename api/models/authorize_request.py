@@ -29,9 +29,10 @@ class AuthorizeRequest(BaseModel):
     """ # noqa: E501
     message: Annotated[str, Field(min_length=1, strict=True, max_length=512)]
     tag: Dict[str, StrictStr]
+    on_behalf_of: Optional[StrictStr] = Field(default=None, description="If requesting authorization on a user's behalf, provide the email to let the approvers know.", alias="onBehalfOf")
     context: Optional[Annotated[str, Field(strict=True, max_length=512)]] = None
     payload: Optional[Dict[str, Any]] = Field(default=None, description="Arbitrary JSON data that gets passed to webhooks")
-    __properties: ClassVar[List[str]] = ["message", "tag", "context", "payload"]
+    __properties: ClassVar[List[str]] = ["message", "tag", "onBehalfOf", "context", "payload"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,7 @@ class AuthorizeRequest(BaseModel):
         _obj = cls.model_validate({
             "message": obj.get("message"),
             "tag": obj.get("tag"),
+            "onBehalfOf": obj.get("onBehalfOf"),
             "context": obj.get("context"),
             "payload": obj.get("payload")
         })

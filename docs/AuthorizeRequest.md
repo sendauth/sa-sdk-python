@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **str** |  | 
 **tag** | **Dict[str, str]** |  | 
+**on_behalf_of** | **str** | If requesting authorization on a user&#39;s behalf, provide the email to let the approvers know. | [optional] 
 **context** | **str** |  | [optional] 
 **payload** | **Dict[str, object]** | Arbitrary JSON data that gets passed to webhooks | [optional] 
 

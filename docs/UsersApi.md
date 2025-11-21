@@ -1,6 +1,6 @@
 # api.UsersApi
 
-All URIs are relative to *https://api.sendauth.com*
+All URIs are relative to *https://app.sendauth.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,10 +38,10 @@ from api.models.web_tx import WebTX
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -121,10 +121,10 @@ from api.models.user import User
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -201,10 +201,10 @@ import api
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -279,10 +279,10 @@ import api
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -357,10 +357,10 @@ from api.models.user import User
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -437,10 +437,10 @@ from api.models.paginated_audits import PaginatedAudits
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -523,10 +523,10 @@ from api.models.paginated_transactions import PaginatedTransactions
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -609,10 +609,10 @@ from api.models.paginated_users import PaginatedUsers
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -694,10 +694,10 @@ from api.models.paginated_users import PaginatedUsers
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -784,10 +784,10 @@ from api.models.tx import TX
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -864,10 +864,10 @@ import api
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -941,10 +941,10 @@ import api
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1019,10 +1019,10 @@ from api.models.tags_request import TagsRequest
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1099,10 +1099,10 @@ from api.models.user import User
 from api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.sendauth.com
+# Defining the host is optional and defaults to https://app.sendauth.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = api.Configuration(
-    host = "https://api.sendauth.com"
+    host = "https://app.sendauth.com"
 )
 
 # The client must configure the authentication and authorization parameters
